@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRANIAN CINEMA ARCHIVE — New Wave & Contemporary Masterpieces</title>
+    <meta name="description" content="Explore the brutalist archive of Iranian cinema — from the poetic realism of Kiarostami to the social thrillers of Farhadi.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --white: #f5f5f5;
+            --gray-100: #e0e0e0;
+            --gray-400: #999999;
+            --gray-600: #666666;
+            --gray-800: #2a2a2a;
+            --gray-900: #1a1a1a;
+            
+            /* Iranian Flag Accents */
+            --iran-green: #239f40;
+            --iran-red: #da0000;
+            --iran-emblem: #da0000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography Scale */
+        .text-xs { font-size: 0.75rem; letter-spacing: 0.05em; }
+        .text-sm { font-size: 0.875rem; }
+        .text-base { font-size: 1rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-3xl { font-size: 1.875rem; }
+        .text-4xl { font-size: 2.25rem; line-height: 1.1; }
+        .text-5xl { font-size: 3rem; line-height: 1; }
+        .text-6xl { font-size: 3.75rem; line-height: 0.95; }
+        .text-7xl { font-size: 4.5rem; line-height: 0.9; }
+        .text-8xl { font-size: 6rem; line-height: 0.85; }
+
+        .font-mono { font-family: 'IBM Plex Mono', monospace; }
+        .font-bold { font-weight: 700; }
+        .font-medium { font-weight: 500; }
+        .uppercase { text-transform: uppercase; }
+        .tracking-tighter { letter-spacing: -0.05em; }
+        .tracking-widest { letter-spacing: 0.25em; }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-between { justify-content: space-between; }
+        .justify-center { justify-content: center; }
+        .gap-4 { gap: 1rem; }
+        .gap-8 { gap: 2rem; }
+
+        /* Brutalist Borders */
+        .border-b { border-bottom: 1px solid var(--gray-800); }
+        .border-t { border-top: 1px solid var(--gray-800); }
+        .border-l-4 { border-left: 4px solid var(--iran-green); }
+        .border-r-4 { border-right: 4px solid var(--iran-red); }
+
+        /* Iranian Flag Strip */
+        .flag-strip {
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(to right, var(--iran-green) 33%, var(--white) 33%, var(--white) 66%, var(--iran-red) 66%);
+            position: relative;
+        }
+
+        .flag-strip::after {
+            content: '☫';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--iran-red);
+            font-size: 12px;
+            background: var(--black);
+            padding: 0 8px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray-800);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '▓';
+            color: var(--iran-green);
+        }
+
+        .logo::after {
+            content: '▓';
+            color: var(--iran-red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--iran-red);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            padding-top: 80px;
+            background: 
+                linear-gradient(135deg, rgba(35, 159, 64, 0.03) 0%, transparent 50%),
+                linear-gradient(225deg, rgba(218, 0, 0, 0.03) 0%, transparent 50%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-content h1::before {
+            content: 'IRAN';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            font-size: 0.875rem;
+            color: var(--iran-green);
+            letter-spacing: 0.5em;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            color: var(--gray-400);
+            max-width: 500px;
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-800);
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .stat-item p {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gray-600);
+            margin-top: 0.5rem;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 600px;
+            background: var(--gray-900);
+            border: 1px solid var(--gray-800);
+            overflow: hidden;
+        }
+
+        .film-strip {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 2rem;
+            opacity: 0.3;
+        }
+
+        .film-frame {
+            height: 120px;
+            background: var(--gray-800);
+            border-left: 3px solid var(--iran-green);
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .film-frame:nth-child(even) {
+            border-left-color: var(--iran-red);
+        }
+
+        /* Section Headers */
+        .section-header {
+            padding: 6rem 0 3rem;
+            border-bottom: 1px solid var(--gray-800);
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-title {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 80%;
+            background: var(--iran-green);
+        }
+
+        .section-number {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        /* Category Filter */
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--gray-800);
+            color: var(--gray-400);
+            padding: 0.75rem 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+
+        .filter-btn.active[data-filter="new-wave"] {
+            background: var(--iran-green);
+            color: var(--white);
+            border-color: var(--iran-green);
+        }
+
+        .filter-btn.active[data-filter="contemporary"] {
+            background: var(--iran-red);
+            color: var(--white);
+            border-color: var(--iran-red);
+        }
+
+        /* Film Grid */
+        .films-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+
+        .film-card {
+            background: var(--gray-900);
+            border: 1px solid var(--gray-800);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .film-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--iran-green), var(--iran-red));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+
+        .film-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gray-600);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .film-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .film-poster {
+            aspect-ratio: 2/3;
+            background: var(--gray-800);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        .film-poster-content {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .film-year {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--gray-800);
+        }
+
+        .film-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .film-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-600);
+        }
+
+        .film-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .film-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            color: var(--white);
+        }
+
+        .film-director {
+            color: var(--gray-400);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .film-synopsis {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .film-awards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .award-tag {
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.25rem 0.5rem;
+            background: var(--gray-800);
+            color: var(--gray-400);
+            border-left: 2px solid var(--iran-red);
+        }
+
+        .award-tag.cannes { border-left-color: #ffd700; color: #ffd700; }
+        .award-tag.oscar { border-left-color: #c0c0c0; color: #c0c0c0; }
+        .award-tag.golden { border-left-color: #daa520; color: #daa520; }
+
+        /* Directors Section */
+        .directors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0;
+            border-top: 1px solid var(--gray-800);
+            border-left: 1px solid var(--gray-800);
+        }
+
+        .director-card {
+            padding: 2rem;
+            border-right: 1px solid var(--gray-800);
+            border-bottom: 1px solid var(--gray-800);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .director-card:hover {
+            background: var(--gray-900);
+        }
+
+        .director-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--iran-green);
+            transition: height 0.3s;
+        }
+
+        .director-card:hover::before {
+            height: 100%;
+        }
+
+        .director-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .director-years {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+        }
+
+        .director-style {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .director-works {
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--iran-green), var(--iran-red));
+        }
+
+        .timeline-item {
+            padding-left: 3rem;
+            padding-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--black);
+            border: 2px solid var(--iran-red);
+            border-radius: 50%;
+        }
+
+        .timeline-year {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--iran-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-event {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--gray-800);
+            padding: 4rem 0 2rem;
+            margin-top: 6rem;
+            background: var(--gray-900);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-desc {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            max-width: 300px;
+        }
+
+        .footer-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-800);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-flags {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .flag-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .flag-dot.green { background: var(--iran-green); }
+        .flag-dot.white { background: var(--white); }
+        .flag-dot.red { background: var(--iran-red); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .hero-visual {
+                height: 400px;
+                order: -1;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .text-8xl { font-size: 3.5rem; }
+            .text-7xl { font-size: 3rem; }
+            .text-6xl { font-size: 2.5rem; }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .films-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gray-800);
+            border: 2px solid var(--black);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gray-600);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Iranian Flag Strip -->
+    <div class="flag-strip"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">IRANIAN CINEMA</div>
+                <ul class="nav-links">
+                    <li><a href="#films">Films</a></li>
+                    <li><a href="#directors">Directors</a></li>
+                    <li><a href="#history">History</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content animate-in">
+                    <h1 class="text-8xl font-bold tracking-tighter">
+                        CINEMA<br>
+                        <span style="color: var(--gray-600);">IRAN</span>
+                    </h1>
+                    <p class="hero-description">
+                        A brutalist archive of Iranian cinematic excellence. From the poetic neorealism of the New Wave to the searing social dramas of contemporary masters — explore the films that redefined world cinema.
+                    </p>
+                    <div class="flex gap-4" style="margin-top: 2rem;">
+                        <a href="#films" style="background: var(--white); color: var(--black); padding: 1rem 2rem; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.875rem;">Explore Films</a>
+                        <a href="#directors" style="border: 1px solid var(--gray-600); color: var(--white); padding: 1rem 2rem; text-decoration: none; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.875rem;">Directors</a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>60+</h3>
+                            <p>Years of New Wave</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>12</h3>
+                            <p>Cannes Awards</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>3</h3>
+                            <p>Academy Awards</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>2</h3>
+                            <p>Golden Bears</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual animate-in" style="animation-delay: 0.2s;">
+                    <div class="film-strip">
+                        <div class="film-frame">CLOSE-UP (1990) — KIAROSTAMI</div>
+                        <div class="film-frame">A SEPARATION (2011) — FARHADI</div>
+                        <div class="film-frame">THE CIRCLE (2000) — PANahi</div>
+                        <div class="film-frame">TASTE OF CHERRY (1997) — KIAROSTAMI</div>
+                    </div>
+                    <div style="position: absolute; bottom: 2rem; right: 2rem; text-align: right;">
+                        <div class="text-xs uppercase tracking-widest" style="color: var(--gray-600); margin-bottom: 0.5rem;">Est.</div>
+                        <div class="text-4xl font-bold" style="color: var(--gray-800);">1969</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Films Section -->
+    <section id="films" class="container">
+        <div class="section-header">
+            <div>
+                <div class="section-number font-mono">001</div>
+                <h2 class="section-title text-5xl font-bold">FILMS</h2>
+            </div>
+            <div class="text-sm" style="color: var(--gray-600); max-width: 300px; text-align: right;">
+                Curated masterpieces from the Iranian New Wave and contemporary cinema
+            </div>
+        </div>
+
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All Films</button>
+            <button class="filter-btn" data-filter="new-wave">New Wave (1969-2000)</button>
+            <button class="filter-btn" data-filter="contemporary">Contemporary (2000+)</button>
+            <button class="filter-btn" data-filter="neo-realism">Neo-Realism</button>
+            <button class="filter-btn" data-filter="social-drama">Social Drama</button>
+        </div>
+
+        <div class="films-grid" id="filmsGrid">
+            <!-- Film Cards -->
+            
+            <!-- Close-Up -->
+            <article class="film-card" data-category="new-wave neo-realism">
+                <div class="film-poster">
+                    <div class="film-poster-content">
+                        <div class="film-year">1990</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎭</div>
+                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">CLOSE-UP</div>
+                    </div>
+                </div>
+                <div class="film-info">
+                    <div class="film-meta">
+                        <span>📹 Docufiction</span>
+                        <span>⏱ 98 min</span>
+                    </div>
+                    <h3 class="film-title">Close-Up</h3>
+                    <p class="film-director">Directed by Abbas Kiarostami</p>
+                    <p class="film-synopsis">A mesmerizing blend of documentary and fiction following Hossain Sabzian, who impersonated filmmaker Mohsen Makhmalbaf. A profound meditation on identity, art, and class in post-revolutionary Iran.</p>
+                    <div class="film-awards">
+                        <span class="award-tag cannes">Cannes — FIPRESCI Prize</span>
+                        <span class="award-tag">Sight & Sound — Top 10</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- A Separation -->
+            <article class="film-card" data-category="contemporary social-drama">
+                <div class="film-poster">
+                    <div class="film-poster-content">
+                        <div class="film-year">2011</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">⚖️</div>
+                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">JODAI-E NADER</div>
+                    </div>
+                </div>
+                <div class="film-info">
+                    <div class="film-meta">
+                        <span>🎭 Drama</span>
+                        <span>⏱ 123 min</span>
+                    </div>
+                    <h3 class="film-title">A Separation</h3>
+                    <p class="film-director">Directed by Asghar Farhadi</p>
+                    <p class="film-synopsis">A middle-class couple in Tehran faces a wrenching decision about leaving Iran for the sake of their daughter. When the husband hires a lower-class caregiver for his elderly father, tragedy strikes and legal complications ensue.</p>
+                    <div class="film-awards">
+                        <span class="award-tag oscar">Academy Award — Best Foreign Film</span>
+                        <span class="award-tag cannes">Cannes — Best Actress</span>
+                        <span class="award-tag golden">Golden Bear Nominee</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Taste of Cherry -->
+            <article class="film-card" data-category="new-wave">
+                <div class="film-poster">
+                    <div class="film-poster-content">
+                        <div class="film-year">1997</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🍒</div>
+                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">TA'M E GUILASS</div>
+                    </div>
+                </div>
+                <div class="film-info">
+                    <div class="film-meta">
+                        <span>🎭 Drama</span>
+                        <span>⏱ 95 min</span>
+                    </div>
+                    <h3 class="film-title">Taste of Cherry</h3>
+                    <p class="film-director">Directed by Abbas Kiarostami</p>
+                    <p class="film-synopsis">Mr. Badii drives through the hills outside Tehran, searching for someone to assist him in a desperate act. A minimalist masterpiece about life, death, and the simple pleasures that make existence worthwhile.</p>
+                    <div class="film-awards">
+                        <span class="award-tag cannes">Cannes — Palme d'Or</span>
+                        <span class="award-tag">César — Best Foreign Film</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- The Circle -->
+            <article class="film-card" data-category="contemporary social-drama">
+                <div class="film-poster">
+                    <div class="film-poster-content">
+                        <div class="film-year">2000</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">⭕</div>
+                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">DAYEREH</div>
+                    </div>
+                </div>
+                <div class="film-info">
+                    <div class="film-meta">
+                        <span>🎭 Drama</span>
+                        <span>⏱ 90 min</span>
+                    </div>
+                    <h3 class="film-title">The Circle</h3>
+                    <p class="film-director">Directed by Jafar Panahi</p>
+                    <p class="film-synopsis">Banned in Iran, this urgent drama follows several women navigating the streets of Tehran after release from prison. A searing indictment of patriarchal oppression and one of the most important feminist films of the 21st century.</p>
+                    <div class="film-awards">
+                        <span class="award-tag golden">Venice — Golden Lion</span>
+                        <span class="award-tag">FIPRESCI Prize</span>
+                        <span class="award-tag">UNESCO Award</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Where Is the Friend's House? -->
+            <article class="film-card" data-category="new-wave neo-realism">
+                <div class="film-poster">
+                    <div class="film-poster-content">
+                        <div class="film-year">1987</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🏠</div>
+                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">KHANEH-YE</div>
+                    </div>
+                </div>
+                <div class="film-info">
+                    <div class="film-meta">
+                        <span>🎭 Drama</span>
+                        <span>⏱ 83 min</span>
+                    </div>
+                    <h3 class="film-title">Where Is the Friend's House?</h3>
+                    <p class="film-director">Directed by Abbas Kiarostami</p>
+                    <p class="film-synopsis">A young boy must return his friend's notebook to prevent him from being expelled. Shot in the earthquake-ravaged village of Koker, this gentle tale of childhood responsibility became the foundation of the Koker Trilogy.</p>
+                    <div class="film-awards">
+                        <span class="award-tag">Locarno — Bronze Leopard</span>
+                        <span class="award-tag">FIPRESCI Prize</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- The Salesman -->
+            <article class="film-card" data-category="contemporary social-drama">
+                <div class="film-poster">
+                    <div class="film-poster-content">
+                        <div class="film-year">2016</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎭</div>
+                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">FORUSHANDE</div>
+                    </div>
+                </div>
+                <div class="film-info">
+                    <div class="film-meta">
+                        <span>🎭 Thriller</span>
+                        <span>⏱ 124 min</span>
+                    </div>
+                    <h3 class="film-title">The Salesman</h3>
+                    <p class="film-director">Directed by Asghar Farhadi</p>
+                    <p class="film-synopsis">A couple's relationship turns violent after they move into a new apartment with a dark history. As they perform Arthur Miller's "Death of a Salesman," the boundaries between performance and reality dissolve.</p>
+                    <div class="film-awards">
+                        <span class="award-tag oscar">Academy Award — Best Foreign Film</span>
+                        <span class="award-tag cannes">Cannes — Best Actor</span>
+                        <span class="award-tag cannes">Cannes — Best Screenplay</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- The Cow -->
+            <article class="film-card" data-category="new-wave">
+                <div class="film-poster">
+                    <div class="film-poster-content">
+                        <div class="film-year">1969</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🐄</div>
+                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">GAOV</div>
+                    </div>
+                </div>
+                <div class="film-info">
+                    <div class="film-meta">
+                        <span>🎭 Drama</span>
+                        <span>⏱ 104 min</span>
+                    </div>
+                    <h3 class="film-title">The Cow</h3>
+                    <p class="film-director">Directed by Dariush Mehrjui</p>
+                    <p class="film-synopsis">The foundational film of the Iranian New Wave. When a villager's beloved cow dies, he descends into madness, believing he has become the animal. A powerful allegory of dignity, loss, and rural transformation.</p>
+                    <div class="film-awards">
+                        <span class="award-tag">FIPRESCI Prize</span>
+                        <span class="award-tag">Ministry of Culture Award</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Persepolis -->
+            <article class="film-card" data-category="contemporary">
+                <div class="film-poster">
+                    <div class="film-poster-content">
+                        <div class="film-year">2007</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">✨</div>
+                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">PERSEPOLIS</div>
+                    </div>
+                </div>
+                <div class="film-info">
+                    <div class="film-meta">
+                        <span>🎬 Animation</span>
+                        <span>⏱ 96 min</span>
+                    </div>
+                    <h3 class="film-title">Persepolis</h3>
+                    <p class="film-director">Directed by Marjane Satrapi & Vincent Paronnaud</p>
+                    <p class="film-synopsis">Based on Satrapi's autobiographical graphic novel, this animated masterpiece follows a young girl coming of age during the Islamic Revolution and Iran-Iraq War. A poignant tale of exile, identity, and resilience.</p>
+                    <div class="film-awards">
+                        <span class="award-tag cannes">Cannes — Jury Prize</span>
+                        <span class="award-tag">Oscar Nominee</span>
+                        <span class="award-tag">Golden Globe Nominee</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Children of Heaven -->
+            <article class="film-card" data-category="new-wave neo-realism">
+                <div class="film-poster">
+                    <div class="film-poster-content">
+                        <div class="film-year">1997</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">👟</div>
+                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">BACHEHA-YE</div>
+                    </div>
+                </div>
+                <div class="film-info">
+                    <div class="film-meta">
+                        <span>🎭 Drama</span>
+                        <span>⏱ 89 min</span>
+                    </div>
+                    <h3 class="film-title">Children of Heaven</h3>
+                    <p class="film-director">Directed by Majid Majidi</p>
+                    <p class="film-synopsis">After losing his sister's shoes, a young boy enters a footrace hoping to win a new pair. A heartwarming neorealist fable that became the first Iranian film nominated for an Academy Award.</p>
+                    <div class="film-awards">
+                        <span class="award-tag">Oscar Nominee</span>
+                        <span class="award-tag">Montreal — Best Film</span>
+                        <span class="award-tag">AFI — Best Foreign Film</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- A Hero -->
+            <article class="film-card" data-category="contemporary social-drama">
+                <div class="film-poster">
+                    <div class="film-poster-content">
+                        <div class="film-year">2021</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>
+                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">GHAHREMAN</div>
+                    </div>
+                </div>
+                <div class="film-info">
+                    <div class="film-meta">
+                        <span>🎭 Drama</span>
+                        <span>⏱ 127 min</span>
+                    </div>
+                    <h3 class="film-title">A Hero</h3>
+                    <p class="film-director">Directed by Asghar Farhadi</p>
+                    <p class="film-synopsis">A man on two-day leave from debtor's prison tries to turn his good deed—returning a found purse—into viral fame. Farhadi's complex moral puzzle about truth, social media, and performative virtue.</p>
+                    <div class="film-awards">
+                        <span class="award-tag cannes">Cannes — Grand Prix</span>
+                        <span class="award-tag">Oscar Nominee</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- The White Balloon -->
+            <article class="film-card" data-category="new-wave neo-realism">
+                <div class="film-poster">
+                    <div class="film-poster-content">
+                        <div class="film-year">1995</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎈</div>
+                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">BADDOONAK-E SEFID</div>
+                    </div>
+                </div>
+                <div class="film-info">
+                    <div class="film-meta">
+                        <span>🎭 Drama</span>
+                        <span>⏱ 85 min</span>
+                    </div>
+                    <h3 class="film-title">The White Balloon</h3>
+                    <p class="film-director">Directed by Jafar Panahi</p>
+                    <p class="film-synopsis">A young girl loses her money for a goldfish on New Year's Eve and must navigate the streets of Tehran to recover it. Panahi's debut feature — a charming, real-time adventure and Cannes Camera d'Or winner.</p>
+                    <div class="film-awards">
+                        <span class="award-tag cannes">Cannes — Camera d'Or</span>
+                        <span class="award-tag">Tokyo — Best Film</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- About Elly -->
+            <article class="film-card" data-category="contemporary social-drama">
+                <div class="film-poster">
+                    <div class="film-poster-content">
+                        <div class="film-year">2009</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🌊</div>
+                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">DARBAR-E ELLI</div>
+                    </div>
+                </div>
+                <div class="film-info">
+                    <div class="film-meta">
+                        <span>🎭 Mystery</span>
+                        <span>⏱ 119 min</span>
+                    </div>
+                    <h3 class="film-title">About Elly</h3>
+                    <p class="film-director">Directed by Asghar Farhadi</p>
+                    <p class="film-synopsis">A group of middle-class friends vacationing by the Caspian Sea face crisis when one of their party disappears. A masterclass in ensemble storytelling and the lies that bind social contracts.</p>
+                    <div class="film-awards">
+                        <span class="award-tag cannes">Cannes — Best Director</span>
+                        <span class="award-tag">Berlin — Best Film</span>
+                        <span class="award-tag">Tribune — Best Film</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Directors Section -->
+    <section id="directors" class="container" style="margin-top: 6rem;">
+        <div class="section-header">
+            <div>
+                <div class="section-number font-mono">002</div>
+                <h2 class="section-title text-5xl font-bold">DIRECTORS</h2>
+            </div>
+            <div class="text-sm" style="color: var(--gray-600); max-width: 300px; text-align: right;">
+                Visionaries who shaped Iranian cinema and influenced filmmakers worldwide
+            </div>
+        </div>
+
+        <div class="directors-grid">
+            <div class="director-card">
+                <h3 class="director-name">Abbas Kiarostami</h3>
+                <div class="director-years font-mono">1940 — 2016</div>
+                <p class="director-style">Poetic minimalism, blurred boundaries between documentary and fiction, humanist philosophy, and the Koker Trilogy.</p>
+                <div class="director-works">Close-Up, Taste of Cherry, The Wind Will Carry Us, Certified Copy</div>
+            </div>
+
+            <div class="director-card">
+                <h3 class="director-name">Asghar Farhadi</h3>
+                <div class="director-years font-mono">1972 — Present</div>
+                <p class="director-style">Social thrillers exploring morality, class tension, and family dissolution through intricate narrative puzzles.</p>
+                <div class="director-works">A Separation, The Salesman, A Hero, About Elly</div>
+            </div>
+
+            <div class="director-card">
+                <h3 class="director-name">Jafar Panahi</h3>
+                <div class="director-years font-mono">1960 — Present</div>
+                <p class="director-style">Defiant neo-realism, banned from filmmaking yet continues to create urgent works about oppression and resistance.</p>
+                <div class="director-works">The Circle, The White Balloon, Taxi, No Bears</div>
+            </div>
+
+            <div class="director-card">
+                <h3 class="director-name">Majid Majidi</h3>
+                <div class="director-years font-mono">1959 — Present</div>
+                <p class="director-style">Spiritual neorealism focusing on children, poverty, and transcendence through everyday struggles.</p>
+                <div class="director-works">Children of Heaven, The Color of Paradise, Baran, The Song of Sparrows</div>
+            </div>
+
+            <div class="director-card">
+                <h3 class="director-name">Dariush Mehrjui</h3>
+                <div class="director-years font-mono">1939 — 2023</div>
+                <p class="director-style">Intellectual cinema adapting Western literature to Iranian contexts, founder of the New Wave movement.</p>
+                <div class="director-works">The Cow, The Cycle, Hamoun, Sara</div>
+            </div>
+
+            <div class="director-card">
+                <h3 class="director-name">Sohrab Shahid Saless</h3>
+                <div class="director-years font-mono">1944 — 1998</div>
+                <p class="director-style">Minimalist long takes, static camera work, and contemplative studies of time and alienation.</p>
+                <div class="director-works">A Simple Event, Still Life, The Journey</div>
+            </div>
+
+            <div class="director-card">
+                <h3 class="director-name">Forugh Farrokhzad</h3>
+                <div class="director-years font-mono">1935 — 1967</div>
+                <p class="director-style">Poetic cinema, feminist icon, tragically short career but monumental influence with one masterpiece.</p>
+                <div class="director-works">The House is Black (1962)</div>
+            </div>
+
+            <div class="director-card">
+                <h3 class="director-name">Mohsen Makhmalbaf</h3>
+                <div class="director-years font-mono">1957 — Present</div>
+                <p class="director-style">Politically engaged cinema evolving from Islamic revolutionary themes to poetic international co-productions.</p>
+                <div class="director-works">The Cyclist, Gabbeh, Kandahar, The Silence</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline -->
+    <section id="history" class="container" style="margin-top: 6rem;">
+        <div class="section-header">
+            <div>
+                <div class="section-number font-mono">003</div>
+                <h2 class="section-title text-5xl font-bold">TIMELINE</h2>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year font-mono">1969</div>
+                <div class="timeline-event">The Iranian New Wave Begins</div>
+                <div class="timeline-desc">Dariush Mehrjui's <em>The Cow</em> premieres, establishing intellectual, socially critical cinema distinct from mainstream Iranian film.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year font-mono">1979</div>
+                <div class="timeline-event">The Islamic Revolution</div>
+                <div class="timeline-desc">Cinema faces severe restrictions. Many directors go into exile. The industry nearly collapses but eventually adapts to new codes.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year font-mono">1987</div>
+                <div class="timeline-event">Kiarostami's Breakthrough</div>
+                <div class="timeline-desc"><em>Where Is the Friend's House?</em> wins international acclaim, beginning the global recognition of post-revolutionary Iranian cinema.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year font-mono">1990</div>
+                <div class="timeline-event">Close-Up</div>
+                <div class="timeline-desc">Abbas Kiarostami's genre-defying masterpiece cements Iranian cinema's reputation for philosophical innovation.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year font-mono">1997</div>
+                <div class="timeline-event">Palme d'Or for Iran</div>
+                <div class="timeline-desc">Kiarostami's <em>Taste of Cherry</em> wins the Palme d'Or at Cannes, the highest honor in world cinema.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year font-mono">2000</div>
+                <div class="timeline-event">The Circle & Repression</div>
+                <div class="timeline-desc">Jafar Panahi wins the Golden Lion at Venice, but his film is banned in Iran, beginning his conflict with authorities.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year font-mono">2011</div>
+                <div class="timeline-event">Oscar Victory</div>
+                <div class="timeline-desc">Asghar Farhadi's <em>A Separation</em> becomes the first Iranian film to win the Academy Award for Best Foreign Language Film.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year font-mono">2015</div>
+                <div class="timeline-event">Panahi Defies Ban</div>
+                <div class="timeline-desc">Despite a 20-year filmmaking ban, Jafar Panahi creates <em>Taxi</em>, winning the Golden Bear at Berlin.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year font-mono">2022</div>
+                <div class="timeline-event">Woman, Life, Freedom</div>
+                <div class="timeline-desc">Cinema becomes a tool of resistance during nationwide protests. Directors face increased persecution but continue creating.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand">
+                        IRANIAN CINEMA
+                        <span class="footer-flags">
+                            <span class="flag-dot green"></span>
+                            <span class="flag-dot white"></span>
+                            <span class="flag-dot red"></span>
+                        </span>
+                    </div>
+                    <p class="footer-desc">
+                        A curated archive celebrating the resilience, poetry, and innovation of Iranian filmmakers who transformed world cinema against all odds.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="#films">Film Database</a></li>
+                        <li><a href="#directors">Directors</a></li>
+                        <li><a href="#history">History</a></li>
+                        <li><a href="#">Awards</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Movements</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">New Wave (1969-1980)</a></li>
+                        <li><a href="#">Post-Revolution (1980-1997)</a></li>
+                        <li><a href="#">Second Wave (1997-2009)</a></li>
+                        <li><a href="#">Contemporary (2010+)</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Academic Essays</a></li>
+                        <li><a href="#">Interviews</a></li>
+                        <li><a href="#">Streaming Guide</a></li>
+                        <li><a href="#">Bibliography</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>© 2024 Iranian Cinema Archive</div>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <span>Designed with</span>
+                    <span style="color: var(--iran-red);">♥</span>
+                    <span>for cinema</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const filmCards = document.querySelectorAll('.film-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                filmCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.classList.remove('hidden');
+                        card.style.animation = 'fadeIn 0.5s ease-out forwards';
+                    } else {
+                        const categories = card.getAttribute('data-category').split(' ');
+                        if (categories.includes(filter)) {
+                            card.classList.remove('hidden');
+                            card.style.animation = 'fadeIn 0.5s ease-out forwards';
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.film-card, .director-card, .timeline-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Dynamic year in footer
+        document.querySelector('.footer-bottom div:first-child').textContent = `© ${new Date().getFullYear()} Iranian Cinema Archive`;
+    </script>
+</body>
+</html>
