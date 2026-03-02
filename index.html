@@ -13,13 +13,14 @@
     
     <style>
         :root {
-            --black: #0a0a0a;
-            --white: #f5f5f5;
-            --gray-100: #e0e0e0;
-            --gray-400: #999999;
-            --gray-600: #666666;
-            --gray-800: #2a2a2a;
-            --gray-900: #1a1a1a;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --bg-tertiary: #e8e8e8;
+            --text-primary: #0a0a0a;
+            --text-secondary: #333333;
+            --text-muted: #666666;
+            --border-color: #d0d0d0;
+            --border-dark: #0a0a0a;
             
             /* Iranian Flag Accents */
             --iran-green: #239f40;
@@ -39,8 +40,8 @@
 
         body {
             font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--black);
-            color: var(--white);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -88,17 +89,18 @@
         .gap-8 { gap: 2rem; }
 
         /* Brutalist Borders */
-        .border-b { border-bottom: 1px solid var(--gray-800); }
-        .border-t { border-top: 1px solid var(--gray-800); }
+        .border-b { border-bottom: 2px solid var(--border-dark); }
+        .border-t { border-top: 2px solid var(--border-dark); }
         .border-l-4 { border-left: 4px solid var(--iran-green); }
         .border-r-4 { border-right: 4px solid var(--iran-red); }
 
         /* Iranian Flag Strip */
         .flag-strip {
-            height: 4px;
+            height: 6px;
             width: 100%;
-            background: linear-gradient(to right, var(--iran-green) 33%, var(--white) 33%, var(--white) 66%, var(--iran-red) 66%);
+            background: linear-gradient(to right, var(--iran-green) 33%, var(--bg-primary) 33%, var(--bg-primary) 66%, var(--iran-red) 66%);
             position: relative;
+            border-bottom: 2px solid var(--border-dark);
         }
 
         .flag-strip::after {
@@ -108,9 +110,10 @@
             top: 50%;
             transform: translate(-50%, -50%);
             color: var(--iran-red);
-            font-size: 12px;
-            background: var(--black);
-            padding: 0 8px;
+            font-size: 16px;
+            background: var(--bg-primary);
+            padding: 0 12px;
+            font-weight: bold;
         }
 
         /* Navigation */
@@ -118,65 +121,69 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid var(--gray-800);
+            border-bottom: 2px solid var(--border-dark);
         }
 
         .nav-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1.25rem 0;
         }
 
         .logo {
             font-weight: 700;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             letter-spacing: -0.02em;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            color: var(--text-primary);
         }
 
         .logo::before {
             content: '▓';
             color: var(--iran-green);
+            font-size: 1.25rem;
         }
 
         .logo::after {
             content: '▓';
             color: var(--iran-red);
+            font-size: 1.25rem;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--gray-400);
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 0.875rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            font-weight: 600;
             transition: color 0.3s;
             position: relative;
         }
 
         .nav-links a:hover {
-            color: var(--white);
+            color: var(--text-primary);
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -6px;
             left: 0;
             width: 0;
-            height: 2px;
+            height: 3px;
             background: var(--iran-red);
             transition: width 0.3s;
         }
@@ -192,10 +199,8 @@
             flex-direction: column;
             justify-content: center;
             position: relative;
-            padding-top: 80px;
-            background: 
-                linear-gradient(135deg, rgba(35, 159, 64, 0.03) 0%, transparent 50%),
-                linear-gradient(225deg, rgba(218, 0, 0, 0.03) 0%, transparent 50%);
+            padding-top: 100px;
+            background: var(--bg-primary);
         }
 
         .hero-grid {
@@ -209,25 +214,27 @@
             margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
+            color: var(--text-primary);
         }
 
         .hero-content h1::before {
             content: 'IRAN';
             position: absolute;
-            top: -20px;
+            top: -25px;
             left: 0;
-            font-size: 0.875rem;
+            font-size: 1rem;
             color: var(--iran-green);
             letter-spacing: 0.5em;
-            font-weight: 500;
+            font-weight: 700;
         }
 
         .hero-description {
-            color: var(--gray-400);
+            color: var(--text-secondary);
             max-width: 500px;
             margin-bottom: 2rem;
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             line-height: 1.7;
+            font-weight: 400;
         }
 
         .hero-stats {
@@ -235,13 +242,13 @@
             gap: 3rem;
             margin-top: 3rem;
             padding-top: 2rem;
-            border-top: 1px solid var(--gray-800);
+            border-top: 2px solid var(--border-dark);
         }
 
         .stat-item h3 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--white);
+            color: var(--text-primary);
             line-height: 1;
         }
 
@@ -249,49 +256,68 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            color: var(--gray-600);
+            color: var(--text-muted);
             margin-top: 0.5rem;
+            font-weight: 600;
         }
 
         .hero-visual {
             position: relative;
             height: 600px;
-            background: var(--gray-900);
-            border: 1px solid var(--gray-800);
+            background: var(--bg-secondary);
+            border: 3px solid var(--border-dark);
             overflow: hidden;
         }
 
-        .film-strip {
-            position: absolute;
+        .hero-image-collage {
+            position: relative;
             width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            padding: 2rem;
-            opacity: 0.3;
+            padding: 1rem;
         }
 
-        .film-frame {
-            height: 120px;
-            background: var(--gray-800);
-            border-left: 3px solid var(--iran-green);
-            display: flex;
-            align-items: center;
-            padding: 0 2rem;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.875rem;
-            color: var(--gray-600);
+        .collage-img {
+            position: absolute;
+            object-fit: cover;
+            border: 2px solid var(--border-dark);
+            box-shadow: 4px 4px 0 var(--border-dark);
+            transition: transform 0.3s;
         }
 
-        .film-frame:nth-child(even) {
-            border-left-color: var(--iran-red);
+        .collage-img:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--border-dark);
+            z-index: 10;
+        }
+
+        .collage-img:nth-child(1) {
+            width: 60%;
+            height: 45%;
+            top: 5%;
+            left: 5%;
+            z-index: 3;
+        }
+
+        .collage-img:nth-child(2) {
+            width: 50%;
+            height: 40%;
+            top: 15%;
+            right: 5%;
+            z-index: 2;
+        }
+
+        .collage-img:nth-child(3) {
+            width: 55%;
+            height: 45%;
+            bottom: 5%;
+            left: 10%;
+            z-index: 1;
         }
 
         /* Section Headers */
         .section-header {
             padding: 6rem 0 3rem;
-            border-bottom: 1px solid var(--gray-800);
+            border-bottom: 2px solid var(--border-dark);
             margin-bottom: 3rem;
             display: flex;
             justify-content: space-between;
@@ -301,6 +327,7 @@
         .section-title {
             position: relative;
             padding-left: 2rem;
+            color: var(--text-primary);
         }
 
         .section-title::before {
@@ -316,8 +343,10 @@
 
         .section-number {
             font-family: 'IBM Plex Mono', monospace;
-            color: var(--gray-600);
+            color: var(--text-muted);
             font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         /* Category Filter */
@@ -329,12 +358,13 @@
         }
 
         .filter-btn {
-            background: transparent;
-            border: 1px solid var(--gray-800);
-            color: var(--gray-400);
-            padding: 0.75rem 1.5rem;
+            background: var(--bg-primary);
+            border: 2px solid var(--border-dark);
+            color: var(--text-secondary);
+            padding: 0.875rem 1.75rem;
             font-family: 'Space Grotesk', sans-serif;
             font-size: 0.875rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             text-transform: uppercase;
@@ -343,39 +373,41 @@
 
         .filter-btn:hover,
         .filter-btn.active {
-            background: var(--white);
-            color: var(--black);
-            border-color: var(--white);
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 var(--border-dark);
         }
 
         .filter-btn.active[data-filter="new-wave"] {
             background: var(--iran-green);
-            color: var(--white);
-            border-color: var(--iran-green);
+            color: white;
+            box-shadow: 4px 4px 0 rgba(35, 159, 64, 0.3);
         }
 
         .filter-btn.active[data-filter="contemporary"] {
             background: var(--iran-red);
-            color: var(--white);
-            border-color: var(--iran-red);
+            color: white;
+            box-shadow: 4px 4px 0 rgba(218, 0, 0, 0.3);
         }
 
         /* Film Grid */
         .films-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
             margin-bottom: 6rem;
         }
 
         .film-card {
-            background: var(--gray-900);
-            border: 1px solid var(--gray-800);
+            background: var(--bg-primary);
+            border: 3px solid var(--border-dark);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            box-shadow: 6px 6px 0 rgba(0,0,0,0.1);
         }
 
         .film-card::before {
@@ -384,17 +416,17 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 5px;
             background: linear-gradient(to right, var(--iran-green), var(--iran-red));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s;
+            z-index: 10;
         }
 
         .film-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--gray-600);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transform: translate(-4px, -4px);
+            box-shadow: 10px 10px 0 var(--border-dark);
         }
 
         .film-card:hover::before {
@@ -403,38 +435,46 @@
 
         .film-poster {
             aspect-ratio: 2/3;
-            background: var(--gray-800);
+            background: var(--bg-secondary);
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-bottom: 3px solid var(--border-dark);
+        }
+
+        .film-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%) contrast(1.1);
+            transition: all 0.4s;
+        }
+
+        .film-card:hover .film-poster img {
+            filter: grayscale(0%) contrast(1.2);
+            transform: scale(1.05);
+        }
+
+        .film-year-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
             font-family: 'IBM Plex Mono', monospace;
-            color: var(--gray-600);
             font-size: 0.875rem;
-        }
-
-        .film-poster-content {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .film-year {
-            display: inline-block;
-            background: var(--black);
-            color: var(--white);
-            padding: 0.25rem 0.75rem;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.75rem;
-            margin-bottom: 1rem;
-            border: 1px solid var(--gray-800);
+            font-weight: 700;
+            border: 2px solid var(--border-dark);
+            box-shadow: 3px 3px 0 var(--border-dark);
+            z-index: 5;
         }
 
         .film-info {
-            padding: 1.5rem;
+            padding: 1.75rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            background: var(--bg-primary);
         }
 
         .film-meta {
@@ -444,32 +484,28 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--gray-600);
-        }
-
-        .film-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
+            color: var(--text-muted);
+            font-weight: 600;
         }
 
         .film-title {
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 1.375rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
-            line-height: 1.3;
-            color: var(--white);
+            line-height: 1.2;
+            color: var(--text-primary);
         }
 
         .film-director {
-            color: var(--gray-400);
-            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
             margin-bottom: 1rem;
+            font-weight: 500;
         }
 
         .film-synopsis {
-            color: var(--gray-600);
-            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-size: 0.9375rem;
             line-height: 1.6;
             margin-bottom: 1.5rem;
             flex-grow: 1;
@@ -483,38 +519,60 @@
         }
 
         .award-tag {
-            font-size: 0.625rem;
+            font-size: 0.6875rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.25rem 0.5rem;
-            background: var(--gray-800);
-            color: var(--gray-400);
-            border-left: 2px solid var(--iran-red);
+            letter-spacing: 0.05em;
+            padding: 0.375rem 0.75rem;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border: 2px solid var(--border-dark);
+            font-weight: 600;
         }
 
-        .award-tag.cannes { border-left-color: #ffd700; color: #ffd700; }
-        .award-tag.oscar { border-left-color: #c0c0c0; color: #c0c0c0; }
-        .award-tag.golden { border-left-color: #daa520; color: #daa520; }
+        .award-tag.cannes { 
+            background: #fff9e6; 
+            border-color: #ffd700; 
+            color: #b8860b; 
+        }
+        .award-tag.oscar { 
+            background: #f5f5f5; 
+            border-color: #c0c0c0; 
+            color: #555; 
+        }
+        .award-tag.golden { 
+            background: #fff8e1; 
+            border-color: #daa520; 
+            color: #8b6914; 
+        }
+        .award-tag.venice { 
+            background: #e8f5e9; 
+            border-color: var(--iran-green); 
+            color: var(--iran-green); 
+        }
 
         /* Directors Section */
         .directors-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 0;
-            border-top: 1px solid var(--gray-800);
-            border-left: 1px solid var(--gray-800);
+            border-top: 2px solid var(--border-dark);
+            border-left: 2px solid var(--border-dark);
         }
 
         .director-card {
-            padding: 2rem;
-            border-right: 1px solid var(--gray-800);
-            border-bottom: 1px solid var(--gray-800);
+            padding: 2.5rem;
+            border-right: 2px solid var(--border-dark);
+            border-bottom: 2px solid var(--border-dark);
             transition: all 0.3s;
             position: relative;
+            background: var(--bg-primary);
         }
 
         .director-card:hover {
-            background: var(--gray-900);
+            background: var(--bg-secondary);
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 var(--border-dark);
+            z-index: 5;
         }
 
         .director-card::before {
@@ -533,30 +591,34 @@
         }
 
         .director-name {
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
 
         .director-years {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--gray-600);
-            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            font-weight: 600;
         }
 
         .director-style {
-            font-size: 0.875rem;
-            color: var(--gray-400);
-            line-height: 1.5;
-            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
         }
 
         .director-works {
-            font-size: 0.75rem;
-            color: var(--gray-600);
+            font-size: 0.8125rem;
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            font-weight: 600;
+            line-height: 1.5;
         }
 
         /* Timeline */
@@ -571,7 +633,7 @@
             left: 0;
             top: 0;
             bottom: 0;
-            width: 2px;
+            width: 3px;
             background: linear-gradient(to bottom, var(--iran-green), var(--iran-red));
         }
 
@@ -584,39 +646,42 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -5px;
+            left: -6px;
             top: 0.5rem;
-            width: 12px;
-            height: 12px;
-            background: var(--black);
-            border: 2px solid var(--iran-red);
+            width: 15px;
+            height: 15px;
+            background: var(--bg-primary);
+            border: 3px solid var(--iran-red);
             border-radius: 50%;
         }
 
         .timeline-year {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.875rem;
+            font-size: 1rem;
             color: var(--iran-green);
             margin-bottom: 0.5rem;
+            font-weight: 700;
         }
 
         .timeline-event {
-            font-size: 1.125rem;
-            font-weight: 600;
+            font-size: 1.25rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
 
         .timeline-desc {
-            color: var(--gray-600);
-            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         /* Footer */
         footer {
-            border-top: 1px solid var(--gray-800);
-            padding: 4rem 0 2rem;
-            margin-top: 6rem;
-            background: var(--gray-900);
+            border-top: 3px solid var(--border-dark);
+            padding: 5rem 0 2rem;
+            margin-top: 8rem;
+            background: var(--bg-secondary);
         }
 
         .footer-grid {
@@ -627,27 +692,29 @@
         }
 
         .footer-brand {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            color: var(--text-primary);
         }
 
         .footer-desc {
-            color: var(--gray-600);
-            font-size: 0.875rem;
-            line-height: 1.6;
-            max-width: 300px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            max-width: 320px;
         }
 
         .footer-title {
-            font-size: 0.75rem;
+            font-size: 0.875rem;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--gray-600);
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
             margin-bottom: 1.5rem;
+            font-weight: 700;
         }
 
         .footer-links {
@@ -655,30 +722,34 @@
         }
 
         .footer-links li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.875rem;
         }
 
         .footer-links a {
-            color: var(--gray-400);
+            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.875rem;
-            transition: color 0.3s;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
         }
 
         .footer-links a:hover {
-            color: var(--white);
+            color: var(--iran-red);
+            transform: translateX(4px);
         }
 
         .footer-bottom {
-            border-top: 1px solid var(--gray-800);
+            border-top: 2px solid var(--border-dark);
             padding-top: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.75rem;
-            color: var(--gray-600);
+            font-size: 0.875rem;
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            font-weight: 600;
         }
 
         .footer-flags {
@@ -688,14 +759,60 @@
         }
 
         .flag-dot {
-            width: 8px;
-            height: 8px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
+            border: 2px solid var(--border-dark);
         }
 
         .flag-dot.green { background: var(--iran-green); }
-        .flag-dot.white { background: var(--white); }
+        .flag-dot.white { background: var(--bg-primary); }
         .flag-dot.red { background: var(--iran-red); }
+
+        /* CTA Buttons */
+        .btn-primary {
+            display: inline-block;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 1.25rem 2.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9375rem;
+            border: 3px solid var(--border-dark);
+            box-shadow: 4px 4px 0 var(--border-dark);
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--border-dark);
+            background: var(--iran-green);
+            color: white;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 1.25rem 2.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9375rem;
+            border: 3px solid var(--border-dark);
+            box-shadow: 4px 4px 0 var(--border-dark);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--border-dark);
+            background: var(--iran-red);
+            color: white;
+        }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -711,7 +828,18 @@
             
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 2rem;
+                gap: 3rem;
+            }
+
+            .collage-img {
+                position: relative !important;
+                width: 100% !important;
+                height: 200px !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                margin-bottom: 1rem;
             }
         }
 
@@ -735,6 +863,7 @@
             
             .footer-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
             .section-header {
@@ -742,16 +871,15 @@
                 align-items: flex-start;
                 gap: 1rem;
             }
-        }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+            .filter-bar {
+                gap: 0.5rem;
+            }
 
-        .animate-in {
-            animation: fadeIn 0.6s ease-out forwards;
+            .filter-btn {
+                padding: 0.625rem 1.25rem;
+                font-size: 0.75rem;
+            }
         }
 
         /* Hidden class for filtering */
@@ -759,22 +887,49 @@
             display: none !important;
         }
 
+        /* Loading animation for images */
+        .film-poster {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        .film-poster img {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 12px;
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--black);
+            background: var(--bg-secondary);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--gray-800);
-            border: 2px solid var(--black);
+            background: var(--border-dark);
+            border: 3px solid var(--bg-secondary);
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--gray-600);
+            background: var(--iran-red);
+        }
+
+        /* Selection color */
+        ::selection {
+            background: var(--iran-green);
+            color: white;
         }
     </style>
 </head>
@@ -802,17 +957,17 @@
     <section class="hero">
         <div class="container">
             <div class="hero-grid">
-                <div class="hero-content animate-in">
+                <div class="hero-content">
                     <h1 class="text-8xl font-bold tracking-tighter">
                         CINEMA<br>
-                        <span style="color: var(--gray-600);">IRAN</span>
+                        <span style="color: var(--text-muted);">IRAN</span>
                     </h1>
                     <p class="hero-description">
                         A brutalist archive of Iranian cinematic excellence. From the poetic neorealism of the New Wave to the searing social dramas of contemporary masters — explore the films that redefined world cinema.
                     </p>
                     <div class="flex gap-4" style="margin-top: 2rem;">
-                        <a href="#films" style="background: var(--white); color: var(--black); padding: 1rem 2rem; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.875rem;">Explore Films</a>
-                        <a href="#directors" style="border: 1px solid var(--gray-600); color: var(--white); padding: 1rem 2rem; text-decoration: none; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.875rem;">Directors</a>
+                        <a href="#films" class="btn-primary">Explore Films</a>
+                        <a href="#directors" class="btn-secondary">Directors</a>
                     </div>
                     
                     <div class="hero-stats">
@@ -835,16 +990,11 @@
                     </div>
                 </div>
                 
-                <div class="hero-visual animate-in" style="animation-delay: 0.2s;">
-                    <div class="film-strip">
-                        <div class="film-frame">CLOSE-UP (1990) — KIAROSTAMI</div>
-                        <div class="film-frame">A SEPARATION (2011) — FARHADI</div>
-                        <div class="film-frame">THE CIRCLE (2000) — PANahi</div>
-                        <div class="film-frame">TASTE OF CHERRY (1997) — KIAROSTAMI</div>
-                    </div>
-                    <div style="position: absolute; bottom: 2rem; right: 2rem; text-align: right;">
-                        <div class="text-xs uppercase tracking-widest" style="color: var(--gray-600); margin-bottom: 0.5rem;">Est.</div>
-                        <div class="text-4xl font-bold" style="color: var(--gray-800);">1969</div>
+                <div class="hero-visual">
+                    <div class="hero-image-collage">
+                        <img src="https://images.unsplash.com/photo-1594909122849-11daa4e4d2f2?w=800&q=80" alt="Iranian Cinema" class="collage-img">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80" alt="Film Set" class="collage-img">
+                        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=80" alt="Cinema" class="collage-img">
                     </div>
                 </div>
             </div>
@@ -858,7 +1008,7 @@
                 <div class="section-number font-mono">001</div>
                 <h2 class="section-title text-5xl font-bold">FILMS</h2>
             </div>
-            <div class="text-sm" style="color: var(--gray-600); max-width: 300px; text-align: right;">
+            <div class="text-sm" style="color: var(--text-muted); max-width: 300px; text-align: right;">
                 Curated masterpieces from the Iranian New Wave and contemporary cinema
             </div>
         </div>
@@ -872,16 +1022,13 @@
         </div>
 
         <div class="films-grid" id="filmsGrid">
-            <!-- Film Cards -->
+            <!-- Film Cards with Real Posters -->
             
             <!-- Close-Up -->
             <article class="film-card" data-category="new-wave neo-realism">
                 <div class="film-poster">
-                    <div class="film-poster-content">
-                        <div class="film-year">1990</div>
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎭</div>
-                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">CLOSE-UP</div>
-                    </div>
+                    <span class="film-year-badge">1990</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/7/7c/Close-Up_%281990_film%29_poster.jpg" alt="Close-Up (1990) - Abbas Kiarostami" onerror="this.src='https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&q=80'">
                 </div>
                 <div class="film-info">
                     <div class="film-meta">
@@ -901,11 +1048,8 @@
             <!-- A Separation -->
             <article class="film-card" data-category="contemporary social-drama">
                 <div class="film-poster">
-                    <div class="film-poster-content">
-                        <div class="film-year">2011</div>
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">⚖️</div>
-                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">JODAI-E NADER</div>
-                    </div>
+                    <span class="film-year-badge">2011</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/5/5c/A_Separation.jpg" alt="A Separation (2011) - Asghar Farhadi" onerror="this.src='https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80'">
                 </div>
                 <div class="film-info">
                     <div class="film-meta">
@@ -914,7 +1058,7 @@
                     </div>
                     <h3 class="film-title">A Separation</h3>
                     <p class="film-director">Directed by Asghar Farhadi</p>
-                    <p class="film-synopsis">A middle-class couple in Tehran faces a wrenching decision about leaving Iran for the sake of their daughter. When the husband hires a lower-class caregiver for his elderly father, tragedy strikes and legal complications ensue.</p>
+                    <p class="film-synopsis">A middle-class couple in Tehran faces a wrenching decision about leaving Iran for the sake of their daughter. When the husband hires a lower-class caregiver for his elderly father, tragedy strikes.</p>
                     <div class="film-awards">
                         <span class="award-tag oscar">Academy Award — Best Foreign Film</span>
                         <span class="award-tag cannes">Cannes — Best Actress</span>
@@ -926,11 +1070,8 @@
             <!-- Taste of Cherry -->
             <article class="film-card" data-category="new-wave">
                 <div class="film-poster">
-                    <div class="film-poster-content">
-                        <div class="film-year">1997</div>
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🍒</div>
-                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">TA'M E GUILASS</div>
-                    </div>
+                    <span class="film-year-badge">1997</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/9/9e/Taste_of_cherry_poster.jpg" alt="Taste of Cherry (1997) - Abbas Kiarostami" onerror="this.src='https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&q=80'">
                 </div>
                 <div class="film-info">
                     <div class="film-meta">
@@ -950,11 +1091,8 @@
             <!-- The Circle -->
             <article class="film-card" data-category="contemporary social-drama">
                 <div class="film-poster">
-                    <div class="film-poster-content">
-                        <div class="film-year">2000</div>
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">⭕</div>
-                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">DAYEREH</div>
-                    </div>
+                    <span class="film-year-badge">2000</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/The_Circle_%282000_film%29.jpg" alt="The Circle (2000) - Jafar Panahi" onerror="this.src='https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80'">
                 </div>
                 <div class="film-info">
                     <div class="film-meta">
@@ -965,7 +1103,7 @@
                     <p class="film-director">Directed by Jafar Panahi</p>
                     <p class="film-synopsis">Banned in Iran, this urgent drama follows several women navigating the streets of Tehran after release from prison. A searing indictment of patriarchal oppression and one of the most important feminist films of the 21st century.</p>
                     <div class="film-awards">
-                        <span class="award-tag golden">Venice — Golden Lion</span>
+                        <span class="award-tag venice">Venice — Golden Lion</span>
                         <span class="award-tag">FIPRESCI Prize</span>
                         <span class="award-tag">UNESCO Award</span>
                     </div>
@@ -975,11 +1113,8 @@
             <!-- Where Is the Friend's House? -->
             <article class="film-card" data-category="new-wave neo-realism">
                 <div class="film-poster">
-                    <div class="film-poster-content">
-                        <div class="film-year">1987</div>
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🏠</div>
-                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">KHANEH-YE</div>
-                    </div>
+                    <span class="film-year-badge">1987</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/1/1c/Where_Is_the_Friend%27s_House%3F.jpg" alt="Where Is the Friend's House? (1987) - Abbas Kiarostami" onerror="this.src='https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&q=80'">
                 </div>
                 <div class="film-info">
                     <div class="film-meta">
@@ -999,11 +1134,8 @@
             <!-- The Salesman -->
             <article class="film-card" data-category="contemporary social-drama">
                 <div class="film-poster">
-                    <div class="film-poster-content">
-                        <div class="film-year">2016</div>
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎭</div>
-                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">FORUSHANDE</div>
-                    </div>
+                    <span class="film-year-badge">2016</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/4/4f/The_Salesman_%282016_film%29.jpg" alt="The Salesman (2016) - Asghar Farhadi" onerror="this.src='https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80'">
                 </div>
                 <div class="film-info">
                     <div class="film-meta">
@@ -1024,11 +1156,8 @@
             <!-- The Cow -->
             <article class="film-card" data-category="new-wave">
                 <div class="film-poster">
-                    <div class="film-poster-content">
-                        <div class="film-year">1969</div>
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🐄</div>
-                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">GAOV</div>
-                    </div>
+                    <span class="film-year-badge">1969</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/The_Cow_%281969_film%29.jpg" alt="The Cow (1969) - Dariush Mehrjui" onerror="this.src='https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&q=80'">
                 </div>
                 <div class="film-info">
                     <div class="film-meta">
@@ -1048,11 +1177,8 @@
             <!-- Persepolis -->
             <article class="film-card" data-category="contemporary">
                 <div class="film-poster">
-                    <div class="film-poster-content">
-                        <div class="film-year">2007</div>
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">✨</div>
-                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">PERSEPOLIS</div>
-                    </div>
+                    <span class="film-year-badge">2007</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/9/9b/Persepolis_film.jpg" alt="Persepolis (2007) - Marjane Satrapi" onerror="this.src='https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80'">
                 </div>
                 <div class="film-info">
                     <div class="film-meta">
@@ -1073,11 +1199,8 @@
             <!-- Children of Heaven -->
             <article class="film-card" data-category="new-wave neo-realism">
                 <div class="film-poster">
-                    <div class="film-poster-content">
-                        <div class="film-year">1997</div>
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">👟</div>
-                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">BACHEHA-YE</div>
-                    </div>
+                    <span class="film-year-badge">1997</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/8/80/Children_of_heaven.jpg" alt="Children of Heaven (1997) - Majid Majidi" onerror="this.src='https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&q=80'">
                 </div>
                 <div class="film-info">
                     <div class="film-meta">
@@ -1098,11 +1221,8 @@
             <!-- A Hero -->
             <article class="film-card" data-category="contemporary social-drama">
                 <div class="film-poster">
-                    <div class="film-poster-content">
-                        <div class="film-year">2021</div>
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>
-                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">GHAHREMAN</div>
-                    </div>
+                    <span class="film-year-badge">2021</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/3/3b/A_Hero_%282021_film%29.jpg" alt="A Hero (2021) - Asghar Farhadi" onerror="this.src='https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80'">
                 </div>
                 <div class="film-info">
                     <div class="film-meta">
@@ -1122,11 +1242,8 @@
             <!-- The White Balloon -->
             <article class="film-card" data-category="new-wave neo-realism">
                 <div class="film-poster">
-                    <div class="film-poster-content">
-                        <div class="film-year">1995</div>
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎈</div>
-                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">BADDOONAK-E SEFID</div>
-                    </div>
+                    <span class="film-year-badge">1995</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/2/2e/The_White_Balloon.jpg" alt="The White Balloon (1995) - Jafar Panahi" onerror="this.src='https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=600&q=80'">
                 </div>
                 <div class="film-info">
                     <div class="film-meta">
@@ -1146,11 +1263,8 @@
             <!-- About Elly -->
             <article class="film-card" data-category="contemporary social-drama">
                 <div class="film-poster">
-                    <div class="film-poster-content">
-                        <div class="film-year">2009</div>
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🌊</div>
-                        <div style="font-size: 0.75rem; letter-spacing: 0.2em;">DARBAR-E ELLI</div>
-                    </div>
+                    <span class="film-year-badge">2009</span>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/1/16/About_Elly_poster.jpg" alt="About Elly (2009) - Asghar Farhadi" onerror="this.src='https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80'">
                 </div>
                 <div class="film-info">
                     <div class="film-meta">
@@ -1177,7 +1291,7 @@
                 <div class="section-number font-mono">002</div>
                 <h2 class="section-title text-5xl font-bold">DIRECTORS</h2>
             </div>
-            <div class="text-sm" style="color: var(--gray-600); max-width: 300px; text-align: right;">
+            <div class="text-sm" style="color: var(--text-muted); max-width: 300px; text-align: right;">
                 Visionaries who shaped Iranian cinema and influenced filmmakers worldwide
             </div>
         </div>
@@ -1436,6 +1550,15 @@
 
         // Dynamic year in footer
         document.querySelector('.footer-bottom div:first-child').textContent = `© ${new Date().getFullYear()} Iranian Cinema Archive`;
+
+        // Image error handling
+        document.querySelectorAll('.film-poster img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.display = 'none';
+                this.parentElement.style.background = 'linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%)';
+                this.parentElement.innerHTML += '<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #999; font-family: IBM Plex Mono, monospace; font-size: 0.875rem;">POSTER<br>UNAVAILABLE</div>';
+            });
+        });
     </script>
 </body>
 </html>
